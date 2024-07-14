@@ -9,7 +9,12 @@ const server = app.listen(PORT, () =>
   console.log(`Server has started on port ${PORT}`)
 );
 
-const io = socketio(server);
+const io = socketio(server, {
+    cors: {
+      origin: "*", // Allow all origins
+      methods: ["GET", "POST"]
+    }
+  });
 let sockets = [];
 let searching = [];
 let notAvailable = [];
