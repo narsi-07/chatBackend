@@ -1,9 +1,9 @@
 const express = require("express");
 const socketio = require("socket.io");
 const app = express();
-
+var cors = require("cors");
 app.use(express.static(__dirname + "/public"));
-
+app.use(cors());
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () =>
   console.log(`Server has started on port ${PORT}`)
